@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bulma 学习总结 | XH Blog</title>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+  </head>
+  <body class="site-page reading-page"><!-- #BeginLibraryItem "/Library/header.lbi" -->
+<!-- Header BEGIN -->
+    <div class="xh-header">
+      <div class="container">
+        <a href="https://xhxz.xyz/" class="xh-logo">
+          <img src="https://xhxz.xyz/images/logo.jpg" alt="logo" width="55" height="55">
+        </a>
+        <button class="xh-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="xh-header-menu">
+          <ul class="clearfix">
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                官方文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://bulma.io/documentation/start/overview/" target="_blank">Bulma(css库)</a></li>
+                    <li class="new"><a href="https://alpinejs.dev/start-here" target="_blank" rel="noopener noreferrer">Alpine(js库)</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/" target="_blank">Electron框架</a></li>
+                    <li><a href="https://www.php.net/manual/zh/langref.php" target="_blank">PHP官网</a></li>
+                    <li><a href="https://www.kancloud.cn/thinkcmf/doc/313906" target="_blank">ThinkCMF框架</a></li>
+                    <li><a href="https://vue-loader.vuejs.org/zh/guide/scoped-css.html" target="_blank" rel="noopener noreferrer">Vue Loader（Scoped CSS）</a></li>
+                    <li><a href="https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/" target="_blank" rel="noopener noreferrer">vue-element-admin 指南</a></li>
+                    <li><a href="https://arco.design/vue/component/layout" target="_blank" rel="noopener noreferrer">Arco Design Vue</a></li>
+                    <li><a href="https://cn.vitejs.dev/guide/using-plugins.html" target="_blank" rel="noopener noreferrer">Vite 插件指南</a></li>
+                    <li><a href="https://cn.vuejs.org/guide/introduction.html" target="_blank" rel="noopener noreferrer">Vue 3 指南</a></li>
+                    <li><a href="https://2x.antdv.com/components/select-cn" target="_blank" rel="noopener noreferrer">Ant Design Vue 2</a></li>
+                    <li><a href="https://developers.facebook.com/docs/javascript/quickstart" target="_blank" rel="noopener noreferrer">Facebook JavaScript SDK</a></li>
+                    <li><a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer">Bootstrap 3 中文文档</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image" target="_blank" rel="noopener noreferrer">MDN background-image</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener noreferrer">MDN decodeURIComponent</a></li>
+                    <li><a href="https://ant.design/components/overview-cn/" target="_blank" rel="noopener noreferrer">Ant Design 组件</a></li>
+                    <li><a href="https://releases.electronjs.org/release/v20.3.8" target="_blank" rel="noopener noreferrer">Electron 版本发布</a></li>
+                    <li><a href="https://nodejs.org/dist/latest/docs/api/synopsis.html" target="_blank" rel="noopener noreferrer">Node.js API 文档</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/api/ipc-main" target="_blank" rel="noopener noreferrer">Electron ipcMain</a></li>
+                    <li><a href="https://www.jenkins.io/zh/doc/" target="_blank" rel="noopener noreferrer">Jenkins 用户手册</a></li>
+                    <li><a href="https://swiperjs.com/plugins" target="_blank" rel="noopener noreferrer">Swiper 插件</a></li>
+                    <li><a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma 文档</a></li>
+                    <li><a href="https://bulma.io/documentation/start/responsiveness/" target="_blank" rel="noopener noreferrer">Bulma 响应式布局</a></li>
+                    <li><a href="https://gohugo.io/getting-started/" target="_blank" rel="noopener noreferrer">Hugo 入门</a></li>
+                    <li><a href="https://element.eleme.cn/" target="_blank" rel="noopener noreferrer">Element 组件</a></li>
+                    <li><a href="https://echarts.apache.org/handbook/zh/get-started" target="_blank" rel="noopener noreferrer">Apache ECharts 入门</a></li>
+                    <li><a href="https://support.google.com/analytics/answer/9304153" target="_blank" rel="noopener noreferrer">Google Analytics 帮助</a></li>
+                    <li><a href="https://airbnb.io/lottie/" target="_blank" rel="noopener noreferrer">Lottie 文档</a></li>
+                    <li><a href="https://platform.openai.com/docs/overview" target="_blank" rel="noopener noreferrer">OpenAI API 文档</a></li>
+                    <li><a href="https://developers.google.com/identity" target="_blank" rel="noopener noreferrer">Google Identity 文档</a></li>
+                    <li><a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid" target="_blank" rel="noopener noreferrer">Google API 客户端 ID 指南</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                学习文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/bulma.html" target="_blank">Bulma（Css库）学习总结 </a></li>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/alpine.html" target="_blank">Alpine（Js库）学习总结 </a></li>
+                    <li><a href="https://blog.naibabiji.com/" target="_blank">奶爸建站笔记</a></li>
+                    <li><a href="/learning-docs/chrome-bookmarks.html">Chrome 书签导出</a></li>
+                    <li><a href="/learning-docs/html-elements.html">HTML 标签笔记</a></li>
+                    <li><a href="/learning-docs/react-notes.html">React 学习总结</a></li>
+                    <li><a href="/learning-docs/ga4-utm-events.html">GA4 UTM 与点击事件</a></li>
+                    <li><a href="/learning-docs/ams-notes.html">AMS 学习笔记</a></li>
+                    <li><a href="/learning-docs/api-laravel-notes.html">API 与 Laravel 编写笔记</a></li>
+                    <li><a href="/learning-docs/cbs-typescript-notes.html">CBS 项目（TypeScript）</a></li>
+                    <li><a href="/learning-docs/css-notes.html">CSS 学习笔记</a></li>
+                    <li><a href="/learning-docs/electron-notes.html">Electron 学习笔记</a></li>
+                    <li><a href="/learning-docs/github-commit-workflow.html">GitHub 提交代码流程</a></li>
+                    <li><a href="/learning-docs/javascript-notes.html">JavaScript 学习笔记</a></li>
+                    <li><a href="/learning-docs/wordpress-site-notes.html">WordPress 站点笔记</a></li>
+                    <li><a href="/learning-docs/summary-ai.html">AI 知识点总结理解</a></li>
+                    <li><a href="/learning-docs/xshell.html">Xshell 命令</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                工具
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://squoosh.app/" target="_blank">Squoosh（图片转换）</a></li>
+                    <li><a href="https://www.diffchecker.com/text-compare/" target="_blank">Diffchecker（代码对比）</a></li>
+                    <li><a href="https://ga-dev-tools.google/campaign-url-builder/" target="_blank">Google（URL生成器）</a></li>
+                    <li><a href="https://box-shadow.art/" target="_blank">Box Shadow（Css阴影）</a></li>
+                    <li><a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google 翻译</a></li>
+                    <li><a href="https://codebeautify.org/wordpress-password-hash-generator" target="_blank" rel="noopener noreferrer">WordPress 密码哈希生成</a></li>
+                    <li><a href="https://cards-dev.x.com/validator" target="_blank" rel="noopener noreferrer">X Card Validator</a></li>
+                    <li><a href="https://programmablesearchengine.google.com/about/" target="_blank" rel="noopener noreferrer">Google 可编程搜索引擎</a></li>
+                    <li><a href="https://whatismyipaddress.com/" target="_blank" rel="noopener noreferrer">What Is My IP Address</a></li>
+                    <li><a href="https://ifconfig.me/" target="_blank" rel="noopener noreferrer">ifconfig.me（IP 查询）</a></li>
+                    <li><a href="https://lookup.icann.org/en/lookup" target="_blank" rel="noopener noreferrer">ICANN 域名查询</a></li>
+                    <li><a href="https://www.iloveimg.com/zh-cn/compress-image/compress-jpg" target="_blank" rel="noopener noreferrer">iLoveIMG 图片压缩</a></li>
+                    <li><a href="https://www.bejson.com/ui/file_to_base64/" target="_blank" rel="noopener noreferrer">BeJSON 文件转 Base64</a></li>
+                    <li><a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a></li>
+                    <li><a href="https://favicon.io/favicon-converter/" target="_blank" rel="noopener noreferrer">favicon.io 图标转换</a></li>
+                    <li><a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer">Google 跟踪代码管理器</a></li>
+                    <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a></li>
+                    <li><a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">Can I use（兼容性查询）</a></li>
+                    <li><a href="https://www.whatsmydns.net/" target="_blank" rel="noopener noreferrer">DNS 传播查询</a></li>
+                    <li><a href="https://loading.io/" target="_blank" rel="noopener noreferrer">loading.io 动画生成</a></li>
+                    <li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener noreferrer">Meta 分享调试工具</a></li>
+                    <li><a href="https://debug.iframely.com/" target="_blank" rel="noopener noreferrer">Iframely 嵌入调试</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                预研
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    
+                    <li><a href="https://xhxz.xyz/research/scroll-lottie.html" target="_blank">Lottie滚动动画</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                其他官网
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://www.namesilo.com/" target="_blank">NameSilo官网（域名）</a></li>
+                    <li><a href="https://dash.cloudflare.com/" target="_blank">Cloudflare官网</a></li>
+                    <li><a href="https://github.com/244044" target="_blank">GitHub官网</a></li>
+                    <li><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek 官网</a></li>
+                    <li><a href="https://www.thinkcmf.com/download.html" target="_blank" rel="noopener noreferrer">ThinkCMF 下载</a></li>
+                    <li><a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">YouTube 官网</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-box"></div>
+    </div>
+  <!-- Header END -->
+<!-- #EndLibraryItem -->
+  <main>
+  <header class="page-mast">
+    <a href="../index.html">返回首页</a>
+    <h1>Bulma 学习总结</h1>
+    <p>从基础布局到常用组件，记录使用中的收获。</p>
+  </header>
+  <div class="doc-examples"><!-- 标题和字幕 BEGIN -->
+  <section>
+    <div class="container">
+      <!-- 标题 -->
+      <h1 class="title">h1标题：没有is-1的类</h1>
+      <h2 class="title">h2标题：没有is-2类的效果</h2>
+      <h3 class="title">h3标题：没有is-3类的效果</h3>
+      <h4 class="title">h4标题：没有is-4类的效果</h4>
+      <h5 class="title">h5标题：没有is-5类的效果</h5>
+      <h6 class="title">h6标题：没有is-6类的效果</h6>
+      <h1 class="title is-1">h1标题：有is-1类的效果</h1>
+      <h2 class="title is-2">h2标题：有is-2类的效果</h2>
+      <h3 class="title is-3">h3标题：有is-3类的效果</h3>
+      <h4 class="title is-4">h4标题：有is-4类的效果</h4>
+      <h5 class="title is-5">h5标题：有is-5类的效果</h5>
+      <h6 class="title is-6 is-spaced">h6标题：有is-6类的效果</h6>
+
+      <p class="subtitle is-3 is-spaced">标题总结：</p>
+      <ul>
+        <li>1、只有title类的h标题，无论是h几，大小都是一样的</li>
+        <li>2、不同的标题大小需要添加is- （is-1、is-2、is-3......）  的类</li>
+        <li>3、is-*类和title类，可以添加到任何标签上</li>
+        <li>4、没有title类，只添加is- 是没有效果的</li>
+        <li>5、标题（title）和字幕（subtitle）之间，添加is-spaced类（只在有title类的前提下），可以添加间隙</li>
+      </ul>
+
+      <!-- 字幕 -->
+       <p class="subtitle">添加subtitle类：字幕：没有添加is- 类</p>
+       <p class="subtitle is-1">字幕：添加is-1类的效果</p>
+       <p class="subtitle is-2">字幕：添加is-2类的效果</p>
+       <p class="subtitle is-3">字幕：添加is-3类的效果</p>
+       <p class="subtitle is-4">字幕：添加is-4类的效果</p>
+       <p class="subtitle is-5">字幕：添加is-5类的效果</p>
+       <p class="subtitle is-6">字幕：添加is-6类的效果</p>
+
+       <p class="is-1">只有is-1类的效果</p>
+       <p class="is-2">只有is-2类的效果</p>
+       
+       <p class="subtitle is-3">字幕总结：</p>
+       <ul>
+         <li>1、只有subtitle类大小都是一样的、没有subtitle类，只添加is- 是没有效果的</li>
+         <li>2、不同大小的字体，需要添加is- （is-1、is-2、is-3......）  的类</li>
+         <li>3、subtitle类和is- 类需要一起使用</li>
+         <li>4、可以添加到任何标签</li>
+       </ul>
+    </div>
+  </section>
+  <!-- 标题和字幕 END -->
+
+  <!-- 颜色 BEGIN -->
+  <section>
+    <div class="container">
+      <div class="block">
+        <h1 class="title is-1 is-spaced">常见的颜色</h1>
+        <p class="subtitle is-3">官方文档：<a href="https://bulma.io/documentation/helpers/color-helpers/">https://bulma.io/documentation/helpers/color-helpers/</a></p>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-3">文本颜色：-light(浅色)、-dark(深色)</h3>
+          <div class="box">
+            <p class="has-text-white has-background-black">has-text-white</p>
+            <p class="has-text-black">has-text-black</p>
+            <p class="has-text-light">has-text-light</p>
+            <p class="has-text-dark">has-text-dark</p>
+            <p class="has-text-primary">has-text-primary</p>
+            <p class="has-text-link">has-text-link</p>
+            <p class="has-text-info">has-text-info</p>
+            <p class="has-text-success">has-text-success</p>
+            <p class="has-text-warning">has-text-warning</p>
+            <p class="has-text-danger">has-text-danger</p>
+          </div>
+        </div>
+        <div class="column">
+          <h3 class="title is-3">背景颜色：-light(浅色)、-dark(深色)</h3>
+          <div class="box">
+            <p class="has-background-white">has-background-white</p>
+            <p class="has-background-black">has-background-black</p>
+            <p class="has-background-light">has-background-light</p>
+            <p class="has-background-dark">has-background-dark</p>
+            <p class="has-background-primary">has-background-primary</p>
+            <p class="has-background-link">has-background-link</p>
+            <p class="has-background-info">has-background-info</p>
+            <p class="has-background-success">has-background-success</p>
+            <p class="has-background-warning">has-background-warning</p>
+            <p class="has-background-danger">has-background-danger</p>
+          </div>
+        </div>
+      </div>
+      
+      
+
+    </div>
+  </section>
+  <!-- 颜色 END -->
+
+  <!-- 一、常见的布局 -->
+  <!-- section、container、navbar、hero、footer -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title is-1">
+        一、常见的布局
+      </h1>
+      <div class="block title is-4">
+        1、block类：基本的 <strong>间隔块</strong>（兄弟元素之间会有间距）
+      </div>
+      <div class="block title is-4">
+        2、box类：简单的容器（具有白色背景 + 阴影）
+        <div class="box">
+          可以添加其他标签
+        </div>
+      </div>
+      <div class="block">
+        
+        <div class="content">
+          <p class="title is-4">3、content类：当你无法使用想要的CSS类,或者仅仅想直接使用HTML标签时,请使用 content作为容器<strong>只想使用标签，不使用样式</strong></p>
+          <blockquote>它几乎可以处理任何HTML标签:p段落、ul、ol、dl列表、h1到h6标题、blockquote引言、em、strong、table、tr、th、td表格</blockquote>
+          <blockquote>官方文档：<a href="https://bulma.io/documentation/elements/content/">https://bulma.io/documentation/elements/content/</a></blockquote>    
+        </div>
+      </div>
+      <div class="block">
+        <div class="content">
+          <p class="title is-4">4、columns类和column类：弹性布局的列（flex）</p>
+          <div class="block">
+            <p class="subtitle">列与列之间的间隙添加：在columns上添加is-0（无间距）、is-1（0.25rem）、is-2（0.5rem）、is-3（默认：0.75rem）、is-4(1rem)、is-5(1.25rem)、is-6（1.5rem）、is-7（1.75rem）、is-8(2rem)</p>
+          </div>
+          
+          <ul>
+            <li class="title is-5 has-text-danger">每列的宽度相等,无论几列。 </li>
+          </ul>
+          <div class="columns">
+            <div class="column has-background-success">First column</div>
+            <div class="column has-background-info">Second column</div>
+            <div class="column has-background-warning">Third column</div>
+            <div class="column has-background-danger">Fourth column</div>
+          </div>
+        </div>
+        
+        <div class="content">
+          <ul>
+            <li class="title is-5 has-text-danger">使用以下类：可以更改单个列的大小,其他列将自动填满剩余空间</li>
+            <li class="title is-6 has-text-danger">columns类和columns类之间是没有空隙的</li>
+
+          </ul>
+          <div class="columns">
+            <div class="column is-full has-background-primary has-text-white">is-full:全部占满</div>
+            <div class="column">没有添加类: 在内容外面占位？</div>
+            <div class="column">没有添加类: 在内容外面占位？</div>
+          </div>
+          <div class="columns">
+            <div class="column is-four-fifths has-background-primary has-text-white">is-four-fifths: 五分之四, 每份占20%</div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+          </div>
+          <div class="columns">
+            <div class="column is-three-fifths has-background-primary has-text-white">
+              is-four-fifths、is-three-fifths、is-two-fifths、is-one-fifth类: 每份占20%,看看占几份  
+            </div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+          </div>
+          <div class="columns">
+            <div class="column is-half has-background-primary has-text-white">
+              is-half: 占一半
+            </div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+          </div>
+          <div class="columns">
+            <div class="column is-one-third has-background-primary has-text-white">
+              is-two-fifths、is-one-fifths: 分3份，每份占33%，占其中几份
+            </div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+          </div>
+          <div class="columns">
+            <div class="column is-one-quarters has-background-primary has-text-white ">
+              is-one-quarter、is-two-quarters、is-three-quarters: 分4份，每份占25%，占其中几份
+            </div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+            <div class="column has-background-dark has-text-white">没有类</div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="block">
+        <div class="content">
+          <ul>
+            <li class="title is-5 has-text-danger">12列系统:</li>
+            <li class="title is-6 has-text-danger">可分为12列,添加is-1、is-2、is-   的类:</li>
+          </ul>
+          <div class="columns">
+            <div class="column is-4 has-background-primary has-text-white">添加is-4的类</div>
+            <div class="column is-4 has-background-link has-text-white">添加is-4的类</div>
+            <div class="column is-4 has-background-info has-text-white">添加is-4的类</div>
+          </div>
+          <div class="columns">
+            <div class="column is-3 has-background-info has-text-white">添加is-3的类</div>
+            <div class="column is-6 has-background-primary has-text-white">添加is-6的类</div>
+            <div class="column is-3 has-background-link has-text-white">添加is-3的类</div>
+          </div>
+        </div>
+        <div class="content">
+          <p class="is-5 has-text-danger">is-narrow类：只想让列占用所需的空间</p>
+          <ul>
+            <li class="title is-5 has-text-danger">可以为不同的列设置 breakpoints断点：</li>
+            <li class="has-text-warning">
+              .is-narrow-mobile类、.is-narrow-tablet类、.is-narrow-touch类、.is-narrow-desktop类、.is-narrow-widescreen类、.is-narrow-fullhd类、
+            </li>
+          </ul>
+          <div class="columns">
+            <div class="column is-narrow has-background-link" style="width: 300px;">
+              <span class="has-text-white">is-narrow</span>
+            </div>
+            <div class="column has-background-info">自适应</div>
+          </div>
+          <ul>
+            <li class="title is-5 has-text-danger">列嵌套列：</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <p class="title is-4">5、响应式</p>
+        <ul>
+          <li>
+            <div class="content">
+              <p class="title is-5 has-text-danger">(1)、from() 和 until() 混合类</p>
+              <ul>
+                <li>
+                  <p class="has-text-primary title is-6">@mixin from(1200px): 宽度大于等于（>=）</p>
+                  <blockquote>
+                    <span class="title is-6 has-text-danger">Sass:</span>
+                    @use "bulma/sass/utilities/mixins";<br>
+                    .my-element { <br>
+                      background: red; <br>
+                    
+                      @include mixins.from(1280px) { <br>
+                        background: blue; <br>
+                      } <br>
+                    } <br>
+                  </blockquote>
+                </li>
+                <li>
+                  <p class="has-text-primary title is-6">@mixin until(1200px): 宽度小于（<）<span class="has-text-warning">[设置屏幕宽度（减去1px）]</span></p>
+                  <blockquote>
+                    <span class="title is-6 has-text-danger">Sass:</span>
+                    @use "bulma/sass/utilities/mixins"; <br>
+                    $breakpoint: 1280px; <br>
+
+                    .my-element {<br>
+                      @include mixins.until($breakpoint) {<br>
+                        background: green;<br>
+                      } <br>
+                    
+                      @include mixins.from($breakpoint) { <br>
+                        background: orange; <br>
+                      } <br>
+                    }
+                  </blockquote>
+                </li>
+                  
+              </ul>
+              <p class="title is-5 has-text-danger">(2) 命名简称</p>
+              <ul>
+                <li>
+                  <div class="content">
+                    <p class="title is-6 has-text-danger">mixins.mobile: <= 768px</p>
+                    <blockquote>
+                      用法（以下类推）：
+                      @use "bulma/sass/utilities/mixins"; <br>
+                      @include mixins.mobile { <br>
+                        // Styles applied 
+                        // below $tablet
+                      } <br>
+                    </blockquote>
+                    <p class="title is-6 has-text-danger">mixins.touch: 0 ~ 1023px(不包括1023px)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <p class="title is-6 has-text-danger">mixins.tablet： >768px(不包括768px，即：769px)</p>
+                    <p class="title is-6 has-text-danger">mixins.tablet-only： 769px ~ 1023px</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <p class="title is-6 has-text-danger">mixins.desktop： >=1024px</p>
+                    <p class="title is-6 has-text-danger">mixins.desktop-only： 1024px ~ 1215px</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <p class="title is-6 has-text-danger">mixins.widescreen： >=1216px</p>
+                    <p class="title is-6 has-text-danger">mixins.widescreen-only： 1216px ~ 1407px</p>
+                    <p class="title is-6 has-text-danger">mixins.until-widescreen： 0 ~ 1407px（不包括1407px）</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <p class="title is-6 has-text-danger">mixins.fullhd： >=1408px</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="blocl">
+        <div class="content">
+          <p class="title is-4">5、grid(网格)</p>
+          <!-- <blockquote>它几乎可以处理任何HTML标签:p段落、ul、ol、dl列表、h1到h6标题、blockquote引言、em、strong、table、tr、th、td表格</blockquote>
+          <blockquote>官方文档：<a href="https://bulma.io/documentation/elements/content/">https://bulma.io/documentation/elements/content/</a></blockquote>     -->
+        </div>
+      </div>
+
+      <div class="blocl">
+        <div class="content">
+          <p class="title is-4">5、flex(弹性布局)</p>
+          <blockquote>is-flex类：可以结合其他类进行使用</blockquote>
+          <blockquote>官方文档：<a href="https://bulma.io/documentation/elements/content/">https://bulma.io/documentation/elements/content/</a></blockquote>    
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  </div>
+  </main>
+  <!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer class="home-footer">
+  <div class="home-wrap footer-inner"><div><strong>XXH.</strong><p>持续学习，持续记录。</p></div><div class="footer-links"><a href="https://github.com/244044" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div></div>
+</footer>
+<!-- #EndLibraryItem -->
+  <script defer src="../assets/js/common.js"></script>
+  </body>
+</html>

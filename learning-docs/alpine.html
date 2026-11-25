@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <title>Alpine 学习总结 | XH Blog</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.1/dist/cdn.min.js"></script>
+</head>
+<body class="site-page reading-page"><!-- #BeginLibraryItem "/Library/header.lbi" -->
+<!-- Header BEGIN -->
+    <div class="xh-header">
+      <div class="container">
+        <a href="https://xhxz.xyz/" class="xh-logo">
+          <img src="https://xhxz.xyz/images/logo.jpg" alt="logo" width="55" height="55">
+        </a>
+        <button class="xh-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="xh-header-menu">
+          <ul class="clearfix">
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                官方文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://bulma.io/documentation/start/overview/" target="_blank">Bulma(css库)</a></li>
+                    <li class="new"><a href="https://alpinejs.dev/start-here" target="_blank" rel="noopener noreferrer">Alpine(js库)</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/" target="_blank">Electron框架</a></li>
+                    <li><a href="https://www.php.net/manual/zh/langref.php" target="_blank">PHP官网</a></li>
+                    <li><a href="https://www.kancloud.cn/thinkcmf/doc/313906" target="_blank">ThinkCMF框架</a></li>
+                    <li><a href="https://vue-loader.vuejs.org/zh/guide/scoped-css.html" target="_blank" rel="noopener noreferrer">Vue Loader（Scoped CSS）</a></li>
+                    <li><a href="https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/" target="_blank" rel="noopener noreferrer">vue-element-admin 指南</a></li>
+                    <li><a href="https://arco.design/vue/component/layout" target="_blank" rel="noopener noreferrer">Arco Design Vue</a></li>
+                    <li><a href="https://cn.vitejs.dev/guide/using-plugins.html" target="_blank" rel="noopener noreferrer">Vite 插件指南</a></li>
+                    <li><a href="https://cn.vuejs.org/guide/introduction.html" target="_blank" rel="noopener noreferrer">Vue 3 指南</a></li>
+                    <li><a href="https://2x.antdv.com/components/select-cn" target="_blank" rel="noopener noreferrer">Ant Design Vue 2</a></li>
+                    <li><a href="https://developers.facebook.com/docs/javascript/quickstart" target="_blank" rel="noopener noreferrer">Facebook JavaScript SDK</a></li>
+                    <li><a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer">Bootstrap 3 中文文档</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image" target="_blank" rel="noopener noreferrer">MDN background-image</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener noreferrer">MDN decodeURIComponent</a></li>
+                    <li><a href="https://ant.design/components/overview-cn/" target="_blank" rel="noopener noreferrer">Ant Design 组件</a></li>
+                    <li><a href="https://releases.electronjs.org/release/v20.3.8" target="_blank" rel="noopener noreferrer">Electron 版本发布</a></li>
+                    <li><a href="https://nodejs.org/dist/latest/docs/api/synopsis.html" target="_blank" rel="noopener noreferrer">Node.js API 文档</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/api/ipc-main" target="_blank" rel="noopener noreferrer">Electron ipcMain</a></li>
+                    <li><a href="https://www.jenkins.io/zh/doc/" target="_blank" rel="noopener noreferrer">Jenkins 用户手册</a></li>
+                    <li><a href="https://swiperjs.com/plugins" target="_blank" rel="noopener noreferrer">Swiper 插件</a></li>
+                    <li><a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma 文档</a></li>
+                    <li><a href="https://bulma.io/documentation/start/responsiveness/" target="_blank" rel="noopener noreferrer">Bulma 响应式布局</a></li>
+                    <li><a href="https://gohugo.io/getting-started/" target="_blank" rel="noopener noreferrer">Hugo 入门</a></li>
+                    <li><a href="https://element.eleme.cn/" target="_blank" rel="noopener noreferrer">Element 组件</a></li>
+                    <li><a href="https://echarts.apache.org/handbook/zh/get-started" target="_blank" rel="noopener noreferrer">Apache ECharts 入门</a></li>
+                    <li><a href="https://support.google.com/analytics/answer/9304153" target="_blank" rel="noopener noreferrer">Google Analytics 帮助</a></li>
+                    <li><a href="https://airbnb.io/lottie/" target="_blank" rel="noopener noreferrer">Lottie 文档</a></li>
+                    <li><a href="https://platform.openai.com/docs/overview" target="_blank" rel="noopener noreferrer">OpenAI API 文档</a></li>
+                    <li><a href="https://developers.google.com/identity" target="_blank" rel="noopener noreferrer">Google Identity 文档</a></li>
+                    <li><a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid" target="_blank" rel="noopener noreferrer">Google API 客户端 ID 指南</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                学习文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/bulma.html" target="_blank">Bulma（Css库）学习总结 </a></li>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/alpine.html" target="_blank">Alpine（Js库）学习总结 </a></li>
+                    <li><a href="https://blog.naibabiji.com/" target="_blank">奶爸建站笔记</a></li>
+                    <li><a href="/learning-docs/chrome-bookmarks.html">Chrome 书签导出</a></li>
+                    <li><a href="/learning-docs/html-elements.html">HTML 标签笔记</a></li>
+                    <li><a href="/learning-docs/react-notes.html">React 学习总结</a></li>
+                    <li><a href="/learning-docs/ga4-utm-events.html">GA4 UTM 与点击事件</a></li>
+                    <li><a href="/learning-docs/ams-notes.html">AMS 学习笔记</a></li>
+                    <li><a href="/learning-docs/api-laravel-notes.html">API 与 Laravel 编写笔记</a></li>
+                    <li><a href="/learning-docs/cbs-typescript-notes.html">CBS 项目（TypeScript）</a></li>
+                    <li><a href="/learning-docs/css-notes.html">CSS 学习笔记</a></li>
+                    <li><a href="/learning-docs/electron-notes.html">Electron 学习笔记</a></li>
+                    <li><a href="/learning-docs/github-commit-workflow.html">GitHub 提交代码流程</a></li>
+                    <li><a href="/learning-docs/javascript-notes.html">JavaScript 学习笔记</a></li>
+                    <li><a href="/learning-docs/wordpress-site-notes.html">WordPress 站点笔记</a></li>
+                    <li><a href="/learning-docs/summary-ai.html">AI 知识点总结理解</a></li>
+                    <li><a href="/learning-docs/xshell.html">Xshell 命令</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                工具
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://squoosh.app/" target="_blank">Squoosh（图片转换）</a></li>
+                    <li><a href="https://www.diffchecker.com/text-compare/" target="_blank">Diffchecker（代码对比）</a></li>
+                    <li><a href="https://ga-dev-tools.google/campaign-url-builder/" target="_blank">Google（URL生成器）</a></li>
+                    <li><a href="https://box-shadow.art/" target="_blank">Box Shadow（Css阴影）</a></li>
+                    <li><a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google 翻译</a></li>
+                    <li><a href="https://codebeautify.org/wordpress-password-hash-generator" target="_blank" rel="noopener noreferrer">WordPress 密码哈希生成</a></li>
+                    <li><a href="https://cards-dev.x.com/validator" target="_blank" rel="noopener noreferrer">X Card Validator</a></li>
+                    <li><a href="https://programmablesearchengine.google.com/about/" target="_blank" rel="noopener noreferrer">Google 可编程搜索引擎</a></li>
+                    <li><a href="https://whatismyipaddress.com/" target="_blank" rel="noopener noreferrer">What Is My IP Address</a></li>
+                    <li><a href="https://ifconfig.me/" target="_blank" rel="noopener noreferrer">ifconfig.me（IP 查询）</a></li>
+                    <li><a href="https://lookup.icann.org/en/lookup" target="_blank" rel="noopener noreferrer">ICANN 域名查询</a></li>
+                    <li><a href="https://www.iloveimg.com/zh-cn/compress-image/compress-jpg" target="_blank" rel="noopener noreferrer">iLoveIMG 图片压缩</a></li>
+                    <li><a href="https://www.bejson.com/ui/file_to_base64/" target="_blank" rel="noopener noreferrer">BeJSON 文件转 Base64</a></li>
+                    <li><a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a></li>
+                    <li><a href="https://favicon.io/favicon-converter/" target="_blank" rel="noopener noreferrer">favicon.io 图标转换</a></li>
+                    <li><a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer">Google 跟踪代码管理器</a></li>
+                    <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a></li>
+                    <li><a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">Can I use（兼容性查询）</a></li>
+                    <li><a href="https://www.whatsmydns.net/" target="_blank" rel="noopener noreferrer">DNS 传播查询</a></li>
+                    <li><a href="https://loading.io/" target="_blank" rel="noopener noreferrer">loading.io 动画生成</a></li>
+                    <li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener noreferrer">Meta 分享调试工具</a></li>
+                    <li><a href="https://debug.iframely.com/" target="_blank" rel="noopener noreferrer">Iframely 嵌入调试</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                预研
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    
+                    <li><a href="https://xhxz.xyz/research/scroll-lottie.html" target="_blank">Lottie滚动动画</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                其他官网
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://www.namesilo.com/" target="_blank">NameSilo官网（域名）</a></li>
+                    <li><a href="https://dash.cloudflare.com/" target="_blank">Cloudflare官网</a></li>
+                    <li><a href="https://github.com/244044" target="_blank">GitHub官网</a></li>
+                    <li><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek 官网</a></li>
+                    <li><a href="https://www.thinkcmf.com/download.html" target="_blank" rel="noopener noreferrer">ThinkCMF 下载</a></li>
+                    <li><a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">YouTube 官网</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-box"></div>
+    </div>
+  <!-- Header END -->
+<!-- #EndLibraryItem -->
+  <main>
+  <header class="page-mast">
+    <a href="../index.html">返回首页</a>
+    <h1>Alpine 学习总结</h1>
+    <p>轻量交互的学习笔记与实践记录。</p>
+  </header>
+  <article class="knowledge-article">
+<h3>官方文档：<a href="https://alpinejs.dev/essentials/templating">https://alpinejs.dev/essentials/templating</a></h3>
+<h2>总结：</h2>
+<h3>1、相关概念</h3>
+<p><strong>Alpine.js</strong> 是一个轻量级、声明式的前端框架， 灵感来自 <strong>Vue.js</strong>，目标是提供 Vue 的响应式与模板语法，但无需复杂构建工具。</p>
+<pre><code>Alpine.js
+│
+├─ 核心思想：轻量声明式 → 像 Vue 的模板语法 + 原生 DOM 绑定
+│
+├─ 核心指令：
+│   ├─ x-data / x-text / x-html
+│   ├─ x-bind / x-show / x-if
+│   ├─ x-model / x-for / x-transition
+│   └─ x-init
+│
+├─ 事件系统：
+│   ├─ @click / @input / @submit.prevent
+│   └─ @事件名.window / @事件名.document
+│
+├─ 魔法变量：
+│   ├─ $el / $refs / $watch
+│   ├─ $store / $nextTick / $dispatch
+│
+├─ 全局状态：
+│   └─ Alpine.store('name', {...})
+│
+└─ 典型应用：
+    ├─ 折叠菜单
+    ├─ 模态弹窗
+    ├─ 标签切换
+    └─ 搜索过滤框
+</code></pre>
+<p>它特别适合：</p>
+<ul>
+<li>静态页面添加动态交互；</li>
+<li>替代 jQuery 实现简单逻辑；</li>
+<li>嵌入 Laravel / Django / Flask / WordPress 等后端模板中。</li>
+</ul>
+<p>📦 体积：大约 <strong>10KB gzip 后</strong>。<br>
+📜 用法：直接在 <code>&lt;script&gt;</code> 标签引入，无需打包。</p>
+<h3>2、生命周期</h3>
+<p>Alpine 组件的生命周期与 Vue 类似，分为几个关键阶段：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>触发时机</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>初始化前</strong></td>
+<td>在 <code>x-data</code> 被解析前</td>
+<td>全局事件监听（<code>alpine:init</code>）</td>
+</tr>
+<tr>
+<td><strong>初始化</strong></td>
+<td>创建组件、解析指令</td>
+<td>注册数据、定义状态</td>
+</tr>
+<tr>
+<td><strong>x-init</strong></td>
+<td>DOM 初始化后执行</td>
+<td>执行首次逻辑，比如请求数据</td>
+</tr>
+<tr>
+<td><strong>DOM 渲染后</strong></td>
+<td>所有指令生效</td>
+<td>用 <code>$nextTick</code> 执行依赖 DOM 的逻辑</td>
+</tr>
+<tr>
+<td><strong>销毁前</strong></td>
+<td>组件被移除前</td>
+<td>清除事件监听（需要手动处理）</td>
+</tr>
+</tbody>
+</table></div>
+<h4>🔹 生命周期事件（可以监听）</h4>
+<pre><code>document.addEventListener('alpine:init', () =&gt; {
+  console.log('Alpine 初始化');
+});
+
+document.addEventListener('alpine:initialized', () =&gt; {
+  console.log('所有组件都已就绪');
+});
+</code></pre>
+<h3>3、指令详解</h3>
+<h4>1️⃣ <code>x-data</code> ：创建一个 Alpine 组件（即作用域）。</h4>
+<ul>
+<li>每个 <code>x-data</code> 块都是独立作用域；</li>
+<li>内部的变量、方法都可以直接在模板中使用；</li>
+<li>可以是对象、函数返回值等形式。</li>
+</ul>
+<pre><code>&lt;div x-data=&quot;{ count: 0 }&quot;&gt;
+  &lt;button @click=&quot;count++&quot;&gt;+&lt;/button&gt;
+  &lt;span x-text=&quot;count&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<h4>2️⃣ <code>x-text</code> / <code>x-html</code> ：渲染文本或 HTML 内容。</h4>
+<pre><code>&lt;span x-text=&quot;username&quot;&gt;&lt;/span&gt;
+&lt;div x-html=&quot;htmlContent&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h4>3️⃣ <code>x-bind</code>（简写：<code>:</code>）：动态绑定属性。</h4>
+<pre><code>&lt;img :src=&quot;imageUrl&quot; :alt=&quot;desc&quot;&gt;
+</code></pre>
+<h4>4️⃣x-on： 事件绑定 <code>（@事件名）</code> ：绑定 DOM 事件（简写形式）。</h4>
+<p>@click 、@mouseenter （可以通过名称监听任何浏览器事件 ）</p>
+<p>支持的修饰符：</p>
+<ul>
+<li><code>.prevent</code>：阻止浏览器的默认行为</li>
+<li><code>.stop</code>：阻止冒泡（e.stopPropagation()</li>
+<li><code>.once</code>：只触发一次</li>
+<li><code>.debounce.500ms</code>：防抖</li>
+</ul>
+<p>例如：</p>
+<pre><code>&lt;form @submit.prevent=&quot;save()&quot;&gt;...&lt;/form&gt;
+</code></pre>
+<h4>5️⃣ <code>x-show</code>：通过 <code>display: none</code> 控制显示隐藏，可配合 <code>x-transition</code> 动画：</h4>
+<pre><code>&lt;div x-show=&quot;open&quot; x-transition.duration.300ms&gt;
+  ...
+&lt;/div&gt;
+</code></pre>
+<h4>6️⃣ <code>x-if</code>：与 <code>x-show</code> 的区别是<strong>真正创建或销毁 DOM</strong>：</h4>
+<pre><code>&lt;template x-if=&quot;open&quot;&gt;
+  &lt;p&gt;只有 open 为 true 时才渲染&lt;/p&gt;
+&lt;/template&gt;
+</code></pre>
+<h4>7️⃣ <code>x-model</code>：实现双向数据绑定。</h4>
+<p>还支持修饰符：</p>
+<ul>
+<li><code>.number</code>：转换为数字</li>
+<li><code>.trim</code>：去除首尾空格</li>
+<li><code>.lazy</code>：失焦时更新</li>
+</ul>
+<pre><code>&lt;input type=&quot;text&quot; x-model=&quot;name&quot;&gt;
+&lt;p x-text=&quot;name&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h4></h4>
+<h4>8️⃣ <code>x-for</code>：循环渲染列表。</h4>
+<pre><code>&lt;ul&gt;
+  &lt;template x-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+    &lt;li x-text=&quot;item.name&quot;&gt;&lt;/li&gt;
+  &lt;/template&gt;
+&lt;/ul&gt;
+</code></pre>
+<h4>9️⃣ <code>x-transition</code>：内置的 CSS 过渡动画。</h4>
+<pre><code>&lt;div x-show=&quot;open&quot; x-transition&gt;
+  内容
+&lt;/div&gt;
+</code></pre>
+<p>自定义：</p>
+<pre><code>&lt;div x-show=&quot;open&quot;
+     x-transition:enter=&quot;transition ease-out duration-300&quot;
+     x-transition:enter-start=&quot;opacity-0&quot;
+     x-transition:enter-end=&quot;opacity-100&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<h4>🔟 <code>x-init</code>：组件初始化时执行代码：</h4>
+<pre><code>&lt;div x-data=&quot;{ count: 0 }&quot; x-init=&quot;count = 5&quot;&gt;
+  初始值：&lt;span x-text=&quot;count&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<h4>x-modelable</h4>
+<h4>x-effect</h4>
+<h4>x-ignore</h4>
+<h4>x-ref：DOM 引用</h4>
+<h4>x-cloak</h4>
+<h4>x-teleport</h4>
+<h4>x-id</h4>
+<h4>⚙️ 常用核心指令详解（最重要部分）</h4>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x-data</code></td>
+<td>定义组件作用域和响应式数据</td>
+<td><code>&lt;div x-data=&quot;{ open: false }&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-show</code></td>
+<td>显示 / 隐藏元素（用 <code>display:none</code> 控制）</td>
+<td><code>&lt;div x-show=&quot;open&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-bind</code> (<code>:</code>)</td>
+<td>动态绑定属性</td>
+<td><code>&lt;img :src=&quot;imageUrl&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-text</code></td>
+<td>设置元素的文本内容</td>
+<td><code>&lt;span x-text=&quot;msg&quot;&gt;&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-html</code></td>
+<td>设置元素的 innerHTML</td>
+<td><code>&lt;div x-html=&quot;html&quot;&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-model</code></td>
+<td>双向绑定输入值</td>
+<td><code>&lt;input x-model=&quot;name&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-on</code> (<code>@</code>)</td>
+<td>事件绑定</td>
+<td><code>&lt;button @click=&quot;save()&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-if</code></td>
+<td>条件渲染（真正插入/移除 DOM）</td>
+<td><code>&lt;template x-if=&quot;visible&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-for</code></td>
+<td>列表渲染</td>
+<td><code>&lt;template x-for=&quot;item in items&quot;&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-ref</code></td>
+<td>DOM 引用</td>
+<td><code>&lt;div x-ref=&quot;box&quot;&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-transition</code></td>
+<td>元素显示/隐藏动画</td>
+<td><code>&lt;div x-show=&quot;open&quot; x-transition&gt;</code></td>
+</tr>
+<tr>
+<td><code>x-init</code></td>
+<td>初始化执行逻辑</td>
+<td><code>&lt;div x-init=&quot;load()&quot;&gt;</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4、常见的属性（<code>$el</code>、<code>$refs</code>、<code>$store</code>、<code>$watch</code>、<code>$dispatch</code>、<code>$nextTick</code>、<code>$id</code>）</h3>
+<p>Alpine 提供以 <code>$</code> 开头的特殊内置对象：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>魔法属性</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$el</code></td>
+<td>当前元素</td>
+</tr>
+<tr>
+<td><code>$refs</code></td>
+<td>通过 <code>x-ref</code> 引用的元素集合</td>
+</tr>
+<tr>
+<td><code>$store</code></td>
+<td>全局状态</td>
+</tr>
+<tr>
+<td><code>$watch</code></td>
+<td>监听数据变化</td>
+</tr>
+<tr>
+<td><code>$dispatch</code></td>
+<td>发送自定义事件</td>
+</tr>
+<tr>
+<td><code>$nextTick</code></td>
+<td>DOM 更新后执行代码</td>
+</tr>
+<tr>
+<td><code>$id</code></td>
+<td>当前组件唯一标识符</td>
+</tr>
+</tbody>
+</table></div>
+<h4>📝 各属性的用法</h4>
+<h3>5、常见的问题</h3>
+<p>实操：alpine（js）+  bulma（css）相结合</p>
+  </article>
+  <div class="alpine-demo" x-data="{ open: false}">
+    <button class="page-button" type="button" @click = "open = !open" :aria-expanded="open.toString()">切换</button>
+    <div x-show = 'open' x-transition.duration.300ms>
+      内容区域
+    </div>
+  </div>
+  </main>
+  <!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer class="home-footer">
+  <div class="home-wrap footer-inner"><div><strong>XXH.</strong><p>持续学习，持续记录。</p></div><div class="footer-links"><a href="https://github.com/244044" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div></div>
+</footer>
+<!-- #EndLibraryItem -->
+  <script defer src="../assets/js/common.js"></script>
+</body>
+</html>

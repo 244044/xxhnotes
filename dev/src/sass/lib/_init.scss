@@ -1,0 +1,137 @@
+@use "sass:map";
+@use "sass:string";
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// XL screen / xl desktop
+//** Deprecated `$screen-xl` as of v3.0.1
+$screen-xl:                  1520px;
+$screen-xl-min:              $screen-xl;
+//** Deprecated `$screen-xl-desktop` as of v3.0.1
+$screen-xl-desktop:          $screen-xl-min;
+
+// 2XL screen / xxl desktop
+//** Deprecated `$screen-2xl` as of v3.0.1
+$screen-2xl:                  1920px;
+$screen-2xl-min:              $screen-xl;
+//** Deprecated `$screen-xxl-desktop` as of v3.0.1
+$screen-2xl-desktop:          $screen-xl-min;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         20px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet:             768px !default;
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop:            992px !default;
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      1200px !default;
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop !default;
+
+// xl screen / wide desktop
+$container-xl-desktop:      1400px !default;
+//** For `$screen-xl-min` and up.
+$container-xl:                 $container-xl-desktop !default;
+
+
+$breakpoints: (
+  'xs-sm': '( min-width: #{$screen-xs}) and (max-width: #{$screen-sm})',
+  'sm-md': '( min-width: #{$screen-sm}) and (max-width: #{$screen-md})',
+  'lg-xl': '( min-width: #{$screen-lg}) and (max-width: #{$screen-xl})',
+  'md-xl': '( min-width: #{$screen-md}) and (max-width: #{$screen-xl})',
+  'sm-xl': '( min-width: #{$screen-sm}) and (max-width: #{$screen-xl})',
+  'xs-xl': '( min-width: #{$screen-xs}) and (max-width: #{$screen-xl})',
+  'md-lg': '( min-width: #{$screen-md}) and (max-width: #{$screen-lg})',
+  'sm-lg': '( min-width: #{$screen-sm}) and (max-width: #{$screen-lg})',
+  'xs-lg': '( min-width: #{$screen-xs}) and (max-width: #{$screen-lg})',
+  'xs-md': '( min-width: #{$screen-xs}) and (max-width: #{$screen-md})',
+  'min-xs': '( min-width: #{$screen-xs})',
+  'min-sm': '( min-width: #{$screen-sm})',
+  'min-md': '( min-width: #{$screen-md})',
+  'min-lg': '( min-width: #{$screen-lg})',
+  'min-xl': '( min-width: #{$screen-xl})',
+  'min-2xl': '( min-width: #{$screen-2xl})',
+  'max-xs': '( max-width: #{$screen-xs})',
+  'max-sm': '( max-width: #{$screen-sm})',
+  'max-md': '( max-width: #{$screen-md})',
+  'max-lg': '( max-width: #{$screen-lg})',
+  'max-xl': '( max-width: #{$screen-xl})',
+  'max-2xl': '( max-width: #{$screen-2xl})',
+  'default': '( min-width: #{$screen-xl})',
+) !default;
+
+
+@mixin respond-to($breakpoint: default) {
+  $query: map.get($breakpoints, $breakpoint);
+
+  @if $query == null {
+    @error 'No value found for '#{$breakpoint}'. Please make sure it is defined in $breakpoints map.';
+  }
+
+  // 保证输出为合法 CSS 媒体查询字符串
+  @media #{string.unquote($query)} {
+    @content;
+  }
+}
+
+
+.container {
+  @include respond-to(min-xl) {
+    width: $container-xl !important;
+  }
+}

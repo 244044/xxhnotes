@@ -1,0 +1,29 @@
+@import "./init";
+@import "./header";
+@import "./footer";
+
+// 图片目录
+$images-path: '../images' !default; 
+$root-images-path: '../../images/' !default; 
+
+body {
+  margin: 0;
+}
+// container
+.container {
+  width: 1200px !important;
+  @include respond-to(max-xl) {
+    width: 1170px !important;
+  }
+  @include respond-to(max-lg) {
+    width: 970px !important;
+  }
+  @include respond-to(max-md) {
+    width: 750px !important;
+  }
+  @include respond-to(max-sm) {
+    padding: 0 15px;
+    width: 100% !important;
+  }
+}
+

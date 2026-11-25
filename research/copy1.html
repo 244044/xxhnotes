@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <meta charset="UTF-8" />
+  <title>Text Export Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- jsPDF -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <style>
+    .main {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin-bottom: 12px;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    span {
+      display: inline-block;
+    }
+
+    /* ====== 自定义导出弹窗 ====== */
+    .export-popup {
+      position: fixed;
+      z-index: 9999;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+      padding: 6px;
+      display: none;
+      font-size: 14px;
+    }
+
+    .export-popup button {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      border: none;
+      background: none;
+      text-align: left;
+    }
+
+    .export-popup button:active {
+      background: #f0f0f0;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="site-page export-page">
+<!-- #BeginLibraryItem "/Library/header.lbi" -->
+<!-- Header BEGIN -->
+    <div class="xh-header">
+      <div class="container">
+        <a href="https://xhxz.xyz/" class="xh-logo">
+          <img src="https://xhxz.xyz/images/logo.jpg" alt="logo" width="55" height="55">
+        </a>
+        <button class="xh-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="xh-header-menu">
+          <ul class="clearfix">
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                官方文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://bulma.io/documentation/start/overview/" target="_blank">Bulma(css库)</a></li>
+                    <li class="new"><a href="https://alpinejs.dev/start-here" target="_blank" rel="noopener noreferrer">Alpine(js库)</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/" target="_blank">Electron框架</a></li>
+                    <li><a href="https://www.php.net/manual/zh/langref.php" target="_blank">PHP官网</a></li>
+                    <li><a href="https://www.kancloud.cn/thinkcmf/doc/313906" target="_blank">ThinkCMF框架</a></li>
+                    <li><a href="https://vue-loader.vuejs.org/zh/guide/scoped-css.html" target="_blank" rel="noopener noreferrer">Vue Loader（Scoped CSS）</a></li>
+                    <li><a href="https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/" target="_blank" rel="noopener noreferrer">vue-element-admin 指南</a></li>
+                    <li><a href="https://arco.design/vue/component/layout" target="_blank" rel="noopener noreferrer">Arco Design Vue</a></li>
+                    <li><a href="https://cn.vitejs.dev/guide/using-plugins.html" target="_blank" rel="noopener noreferrer">Vite 插件指南</a></li>
+                    <li><a href="https://cn.vuejs.org/guide/introduction.html" target="_blank" rel="noopener noreferrer">Vue 3 指南</a></li>
+                    <li><a href="https://2x.antdv.com/components/select-cn" target="_blank" rel="noopener noreferrer">Ant Design Vue 2</a></li>
+                    <li><a href="https://developers.facebook.com/docs/javascript/quickstart" target="_blank" rel="noopener noreferrer">Facebook JavaScript SDK</a></li>
+                    <li><a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer">Bootstrap 3 中文文档</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image" target="_blank" rel="noopener noreferrer">MDN background-image</a></li>
+                    <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent" target="_blank" rel="noopener noreferrer">MDN decodeURIComponent</a></li>
+                    <li><a href="https://ant.design/components/overview-cn/" target="_blank" rel="noopener noreferrer">Ant Design 组件</a></li>
+                    <li><a href="https://releases.electronjs.org/release/v20.3.8" target="_blank" rel="noopener noreferrer">Electron 版本发布</a></li>
+                    <li><a href="https://nodejs.org/dist/latest/docs/api/synopsis.html" target="_blank" rel="noopener noreferrer">Node.js API 文档</a></li>
+                    <li><a href="https://www.electronjs.org/zh/docs/latest/api/ipc-main" target="_blank" rel="noopener noreferrer">Electron ipcMain</a></li>
+                    <li><a href="https://www.jenkins.io/zh/doc/" target="_blank" rel="noopener noreferrer">Jenkins 用户手册</a></li>
+                    <li><a href="https://swiperjs.com/plugins" target="_blank" rel="noopener noreferrer">Swiper 插件</a></li>
+                    <li><a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer">Bulma 文档</a></li>
+                    <li><a href="https://bulma.io/documentation/start/responsiveness/" target="_blank" rel="noopener noreferrer">Bulma 响应式布局</a></li>
+                    <li><a href="https://gohugo.io/getting-started/" target="_blank" rel="noopener noreferrer">Hugo 入门</a></li>
+                    <li><a href="https://element.eleme.cn/" target="_blank" rel="noopener noreferrer">Element 组件</a></li>
+                    <li><a href="https://echarts.apache.org/handbook/zh/get-started" target="_blank" rel="noopener noreferrer">Apache ECharts 入门</a></li>
+                    <li><a href="https://support.google.com/analytics/answer/9304153" target="_blank" rel="noopener noreferrer">Google Analytics 帮助</a></li>
+                    <li><a href="https://airbnb.io/lottie/" target="_blank" rel="noopener noreferrer">Lottie 文档</a></li>
+                    <li><a href="https://platform.openai.com/docs/overview" target="_blank" rel="noopener noreferrer">OpenAI API 文档</a></li>
+                    <li><a href="https://developers.google.com/identity" target="_blank" rel="noopener noreferrer">Google Identity 文档</a></li>
+                    <li><a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid" target="_blank" rel="noopener noreferrer">Google API 客户端 ID 指南</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                学习文档
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/bulma.html" target="_blank">Bulma（Css库）学习总结 </a></li>
+                    <li class="new"><a href="https://xhxz.xyz/learning-docs/alpine.html" target="_blank">Alpine（Js库）学习总结 </a></li>
+                    <li><a href="https://blog.naibabiji.com/" target="_blank">奶爸建站笔记</a></li>
+                    <li><a href="/learning-docs/chrome-bookmarks.html">Chrome 书签导出</a></li>
+                    <li><a href="/learning-docs/html-elements.html">HTML 标签笔记</a></li>
+                    <li><a href="/learning-docs/react-notes.html">React 学习总结</a></li>
+                    <li><a href="/learning-docs/ga4-utm-events.html">GA4 UTM 与点击事件</a></li>
+                    <li><a href="/learning-docs/ams-notes.html">AMS 学习笔记</a></li>
+                    <li><a href="/learning-docs/api-laravel-notes.html">API 与 Laravel 编写笔记</a></li>
+                    <li><a href="/learning-docs/cbs-typescript-notes.html">CBS 项目（TypeScript）</a></li>
+                    <li><a href="/learning-docs/css-notes.html">CSS 学习笔记</a></li>
+                    <li><a href="/learning-docs/electron-notes.html">Electron 学习笔记</a></li>
+                    <li><a href="/learning-docs/github-commit-workflow.html">GitHub 提交代码流程</a></li>
+                    <li><a href="/learning-docs/javascript-notes.html">JavaScript 学习笔记</a></li>
+                    <li><a href="/learning-docs/wordpress-site-notes.html">WordPress 站点笔记</a></li>
+                    <li><a href="/learning-docs/summary-ai.html">AI 知识点总结理解</a></li>
+                    <li><a href="/learning-docs/xshell.html">Xshell 命令</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                工具
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://squoosh.app/" target="_blank">Squoosh（图片转换）</a></li>
+                    <li><a href="https://www.diffchecker.com/text-compare/" target="_blank">Diffchecker（代码对比）</a></li>
+                    <li><a href="https://ga-dev-tools.google/campaign-url-builder/" target="_blank">Google（URL生成器）</a></li>
+                    <li><a href="https://box-shadow.art/" target="_blank">Box Shadow（Css阴影）</a></li>
+                    <li><a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google 翻译</a></li>
+                    <li><a href="https://codebeautify.org/wordpress-password-hash-generator" target="_blank" rel="noopener noreferrer">WordPress 密码哈希生成</a></li>
+                    <li><a href="https://cards-dev.x.com/validator" target="_blank" rel="noopener noreferrer">X Card Validator</a></li>
+                    <li><a href="https://programmablesearchengine.google.com/about/" target="_blank" rel="noopener noreferrer">Google 可编程搜索引擎</a></li>
+                    <li><a href="https://whatismyipaddress.com/" target="_blank" rel="noopener noreferrer">What Is My IP Address</a></li>
+                    <li><a href="https://ifconfig.me/" target="_blank" rel="noopener noreferrer">ifconfig.me（IP 查询）</a></li>
+                    <li><a href="https://lookup.icann.org/en/lookup" target="_blank" rel="noopener noreferrer">ICANN 域名查询</a></li>
+                    <li><a href="https://www.iloveimg.com/zh-cn/compress-image/compress-jpg" target="_blank" rel="noopener noreferrer">iLoveIMG 图片压缩</a></li>
+                    <li><a href="https://www.bejson.com/ui/file_to_base64/" target="_blank" rel="noopener noreferrer">BeJSON 文件转 Base64</a></li>
+                    <li><a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a></li>
+                    <li><a href="https://favicon.io/favicon-converter/" target="_blank" rel="noopener noreferrer">favicon.io 图标转换</a></li>
+                    <li><a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer">Google 跟踪代码管理器</a></li>
+                    <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a></li>
+                    <li><a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">Can I use（兼容性查询）</a></li>
+                    <li><a href="https://www.whatsmydns.net/" target="_blank" rel="noopener noreferrer">DNS 传播查询</a></li>
+                    <li><a href="https://loading.io/" target="_blank" rel="noopener noreferrer">loading.io 动画生成</a></li>
+                    <li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener noreferrer">Meta 分享调试工具</a></li>
+                    <li><a href="https://debug.iframely.com/" target="_blank" rel="noopener noreferrer">Iframely 嵌入调试</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                预研
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    
+                    <li><a href="https://xhxz.xyz/research/scroll-lottie.html" target="_blank">Lottie滚动动画</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="drop-down">
+              <a href="javascript:void(0)" class="drop-down-title">
+                其他官网
+              </a>
+              <div class="sub-menu">
+                <div class="sub-menu-item">
+                  <ul>
+                    <li><a href="https://www.namesilo.com/" target="_blank">NameSilo官网（域名）</a></li>
+                    <li><a href="https://dash.cloudflare.com/" target="_blank">Cloudflare官网</a></li>
+                    <li><a href="https://github.com/244044" target="_blank">GitHub官网</a></li>
+                    <li><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek 官网</a></li>
+                    <li><a href="https://www.thinkcmf.com/download.html" target="_blank" rel="noopener noreferrer">ThinkCMF 下载</a></li>
+                    <li><a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">YouTube 官网</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-box"></div>
+    </div>
+  <!-- Header END -->
+<!-- #EndLibraryItem -->
+<header class="page-mast">
+  <a href="../index.html">返回首页</a>
+  <h1>文本导出实验</h1>
+  <p>选择文字，尝试不同的导出方式。</p>
+</header>
+<div class="main">
+  <section class="section">
+    <h2>长按选择文本导出</h2>
+    <p>这是一段示例文本支持多行长按选择部分文字导出图片 / CSV / PDF</p>
+    <p>For a safe, selective, and flexible data recovery, MagFone iPhone Data Recovery is the superior choice, while iTunes and iCloud are basic options without advanced recovery features and control.</p>
+  </section>
+  <section class="section">
+    <h2>1、进程了解和学习</h2>
+    <p>官网：<a href="https://www.electronjs.org/zh/docs/latest/tutorial/process-model" target="_blank">https://www.electronjs.org/zh/docs/latest/tutorial/process-model</a></p>
+    <p>For a safe, selective, and flexible data recovery, MagFone iPhone Data Recovery is the superior choice, while iTunes and iCloud are basic options without advanced recovery features and control.</p>
+    <p><strong>Product Name:</strong> Activation Unlocker for Mac Monthly License</p> 
+    <p><strong>Version:</strong> 3.5.1</p>
+    <p><strong>Email:</strong> howedone@gmail.com</p>
+    <p><strong>License code:</strong> 58cb3d1c216b570d183ab9644499cd1c216b23ee94</p>
+    <p>5656565656565656565878901456648720 qweqweqrwqtyuioplkljhgfdssazzxcbmv </p>
+    <h3>1.1、MagFone Download Center</h3>
+    <span>A stunning location changer to change location on iOS and Android devices with ease.</span>
+    <img width="685" height="400" src="../images/test.png" alt="icon">
+    <ul>
+      <li><strong>文章统计：</strong><span>15 篇</span></li>
+      <li>
+        <strong>Recover What Matters: </strong>
+        <div>
+          <span>Losing important iPhone data can be stressful, espeically when it involves personal memories or critical information. </span>
+          <span>MagFone iPhone Data Recovery is a</span>
+        </div>
+      </li>
+      <li>$29.95 / $59.95</li>
+    </ul>
+    <h4>1.1.1、前端控制器和资源相关文件（图片、JavaScript、CSS）</h4>
+    <p>A reliable chats transfer to transfer WhatsApp data without losing a message.</p>
+  </section>
+</div>
+
+
+
+<!-- 导出浮层 -->
+<div id="exportPopup" class="export-popup">
+  <button data-type="image">IMG</button>
+  <button data-type="csv">CSV</button>
+  <button data-type="pdf">PDF</button>
+</div>
+
+<script>
+  let selectedText = '';
+  let rafId = null;
+  const popup = document.getElementById('exportPopup');
+
+  /* ===============================
+     1️⃣ 监听选区变化（核心）
+    //  弹窗会被系统弹窗掩盖住
+  =============================== */
+  document.addEventListener('selectionchange', () => {
+    // 连续 selectionchange 时，只执行最后一次
+    if (rafId) cancelAnimationFrame(rafId);
+
+    rafId = requestAnimationFrame(() => {
+      const selection = window.getSelection();
+
+      // 没有选区
+      if (!selection || selection.rangeCount === 0) {
+        selectedText = '';
+        hidePopup();
+        return;
+      }
+
+      const text = selection.toString().trim();
+      if (!text) {
+        selectedText = '';
+        hidePopup();
+        return;
+      }
+
+      selectedText = text;
+
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+
+      // rect 为空时不处理（某些安卓机）
+      if (!rect || rect.width === 0 || rect.height === 0) return;
+
+      // showPopup(
+      //   rect.left + rect.width / 2,
+      //   rect.top
+      // );
+      // 延迟 300ms 等系统菜单出现并稳定
+      setTimeout(() => {
+        showPopup(
+          rect.left + rect.width / 2,
+          rect.top
+        );
+      }, 300);
+    });
+  });
+
+  popup.addEventListener('pointerdown', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+
+    // 🔥 关键：阻止系统处理选区
+    e.preventDefault();
+    e.stopPropagation();
+
+    const type = btn.dataset.type;
+
+    // ⚠️ 此时 selectedText 还是完整的
+    exportSelected(type);
+  });
+  /* ===============================
+     2️⃣ 点击其他地方隐藏弹窗
+     （不要用 touchstart）
+  =============================== */
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target)) {
+      hidePopup();
+    }
+  });
+
+  /* ===============================
+     3️⃣ 弹窗控制
+  =============================== */
+  function showPopup(x, y) {
+    popup.style.display = 'flex';
+
+    const left = Math.max(
+      10,
+      Math.min(
+        x - popup.offsetWidth / 2,
+        window.innerWidth - popup.offsetWidth - 10
+      )
+    );
+
+    const top = Math.max(
+      40,
+      y - popup.offsetHeight - 44
+    );
+
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+  }
+
+  function hidePopup() {
+    popup.style.display = 'none';
+  }
+
+  /* ===============================
+     4️⃣ 导出入口
+  =============================== */
+  function exportSelected(type) {
+    hidePopup();
+
+    if (!selectedText) return;
+
+    if (type === 'image') saveTextAsImage(selectedText);
+    if (type === 'csv') saveTextAsCSV(selectedText);
+    if (type === 'pdf') saveTextAsPDF(selectedText);
+
+    // window.getSelection().removeAllRanges();
+    // selectedText = '';
+    // 延迟清空选区
+    setTimeout(() => {
+      window.getSelection().removeAllRanges();
+      selectedText = '';
+    }, 0);
+  }
+
+  /* ===============================
+     5️⃣ 通用下载（iOS 兼容）
+  =============================== */
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  //  导出图片
+  function saveTextAsImage(text) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    const fontSize = 16;
+    const lineHeight = 24;
+    ctx.font = fontSize + 'px Arial';
+
+    const lines = text.split('\n');
+    const maxWidth = Math.max(...lines.map(l => ctx.measureText(l).width));
+
+    canvas.width = maxWidth + 40;
+    canvas.height = lines.length * lineHeight + 40;
+
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#000';
+    ctx.font = fontSize + 'px Arial';
+
+    lines.forEach((line, i) => {
+      ctx.fillText(line, 20, 30 + i * lineHeight);
+    });
+
+    canvas.toBlob(blob => {
+      downloadBlob(blob, 'text.png');
+    });
+  }
+
+  // 导出csv
+  function saveTextAsCSV(text) {
+    const rows = text.split('\n').map(line =>
+      `"${line.replace(/"/g, '""')}"`
+    );
+
+    const blob = new Blob([rows.join('\n')], {
+      type: 'text/csv;charset=utf-8;'
+    });
+
+    downloadBlob(blob, 'text.csv');
+  }
+
+  // 导出pdf，导出乱码（字体问题）
+  function saveTextAsPDF(text) {
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF({
+      unit: 'mm',
+      format: 'a4'
+    });
+    // 注册字体
+    // doc.addFileToVFS('NotoSansSC-Regular.ttf', fontBase64);
+    // doc.addFont('NotoSansSC-Regular.ttf', 'NotoSansSC', 'normal');
+    // doc.setFont('NotoSansSC');
+    
+
+    const lines = doc.splitTextToSize(text, 180);
+    doc.text(lines, 15, 20);
+    doc.save('text.pdf');
+  }
+</script>
+
+
+  <!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<footer class="home-footer">
+  <div class="home-wrap footer-inner"><div><strong>XXH.</strong><p>持续学习，持续记录。</p></div><div class="footer-links"><a href="https://github.com/244044" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div></div>
+</footer>
+<!-- #EndLibraryItem -->
+  <script defer src="../assets/js/common.js"></script>
+</body>
+</html>

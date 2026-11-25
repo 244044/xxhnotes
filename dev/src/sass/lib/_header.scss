@@ -1,0 +1,343 @@
+$headerH: 60px;
+.xh-header {
+  background: #fff;
+  z-index: 200;
+  position: relative;
+  width: 100%;
+  height: $headerH;
+
+  @include respond-to(max-md) {
+    overflow: visible;
+  }
+  &.active {
+
+    @include respond-to(max-sm) {
+      padding-bottom: 100px;
+      border-top: 1px solid #E3E5E9;
+      height: calc(100vh - 60px) !important;
+  
+    }
+  }
+  &:hover {
+    >.shadow-box {
+      opacity: 1 !important;
+    }
+  }
+  >.shadow-box {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // box-shadow: 0px 2px 19.6px 0.4px rgba(100, 100, 100, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(62, 119, 180, 0.18);
+    background-color: #fff;
+    z-index: -11;
+    transition: opacity .18s;
+    transform: translateZ(0); // 解决首页视频导致层级问题
+
+    @include respond-to(max-sm) {
+      opacity: 1;
+    }
+  }
+
+  .container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // @include respond-to(max-md) {
+    //   display: block;
+    // }
+
+  }
+
+  .xh-logo {
+    display: block;
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 50%;
+    >img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    img {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .xh-toggle {
+    position: relative;
+    float: right;
+    background: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    padding: 9px 10px;
+    display: none;
+
+    @include respond-to(max-md) {
+      display: inline;
+    }
+
+    &.active {
+      .icon-bar {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    .icon-bar {
+      display: block;
+      margin-top: 4px;
+      width: 22px;
+      height: 2px;
+      transition: transform, opacity .2s, .2s;
+      transform-origin: 2.5px 1px;
+      background-color: #000;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .toggle:hover {
+    background: #333;
+  }
+
+  .drop-active{
+    background-color: #f3f3f3;
+    @include respond-to(max-md) {
+      padding-bottom: 20px;
+      background-color: #fff;
+    }
+    .caret {
+      transform: rotate(-180deg);
+    }
+    .sub-menu{
+      opacity: 1;
+      display: block;
+    }
+    .drop-down-title{
+      color: #fcb43f;
+      &::after {
+        transform: rotate(-180deg);
+        background: url('/images/arrow-active.svg') no-repeat center center !important;
+        background-size: 100% auto;
+      }
+      @include respond-to(max-md) {
+        
+      }
+    }
+  }
+  .drop-down.drop-active>span {
+    @include respond-to(max-xs) {
+      color: #fcb43f;
+    }
+  }
+  .drop-down.drop-active .sub-menu {
+    @include respond-to(max-xs) {
+      display: block;
+    }
+  }
+
+  .active ul {
+    display: block !important;
+  }
+}
+.xh-header-menu {
+  // float: right;
+  position: relative;
+  margin: 0;
+  line-height: $headerH;
+  @include respond-to(max-md) {
+    display: none;
+    padding: 0 15px 30px;
+    position: absolute;
+    top: $headerH;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+  }
+  &.active {
+    display: block;
+    @include respond-to(max-md) {
+      border-top: 1px solid #E3E5E9;
+      height: calc(100vh - 60px) !important;
+      overflow-y: auto;
+    }
+  }
+
+  
+
+  > ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    height: 100%;
+    margin: 0;
+
+    @include respond-to(max-md) {
+      width: 100%;
+    }
+
+    > li {
+      // float: left;
+      padding: 0 40px 0 20px;
+      font-size: 14px;
+      color: #282828;
+      cursor: pointer;
+
+      @include respond-to(max-md) {
+        width: 100%;
+        padding: 0;
+        display: block;
+        text-align: left;
+        &:not(:last-child) {
+          border-bottom: 1px solid #ccc;
+        }
+      }
+
+      &:hover {
+        @include respond-to(min-md) {
+          background-color: #f3f3f3;
+          opacity: 1;
+        }
+      }
+      &.drop-down {
+        position: relative;
+        transition: transform .3s;
+        .drop-down-title {
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 18px;
+            right: -24px;
+            width: 24px;
+            height: 24px;
+            background: url("/images/arrow.svg") no-repeat center center;
+            background-size: 100% auto;
+            @include respond-to(max-md) {
+              top: 15px;
+              right: 0;
+            }
+          }
+        }
+      }
+
+      > a {
+        display: block;
+        color: #282828;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .caret {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .drop-down-title {
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .sub-menu {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .8;
+    width: auto;
+    background: #fff;
+    background-clip: padding-box;
+    box-shadow: 0px 0px 15px 0px rgba(62, 119, 180, 0.18);
+    border-top: none;
+    padding: 20px;
+    z-index: 1;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    @include respond-to(max-md) {
+      position: relative;
+      z-index: 1;
+      box-shadow: none;
+      padding: 0;
+      left: 0;
+      transform: none;
+      max-height: none;
+      overflow: visible;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+
+  .sub-menu-item {
+    // float: left;
+    line-height: 30px;
+    width: 200px;
+
+    @include respond-to(max-md) {
+      float: none;
+      width: 100%;
+    }
+    ul {
+      padding: 0;
+      text-align: left;
+    }
+    li {
+      display: block;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      a {
+        font-size: 16px;
+        color: #282828;
+        text-decoration: none;
+        text-align: left;
+      }
+      &:hover {
+        a {
+          color: #fcb43f;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .drop-down {
+    @include respond-to(max-md) {
+      position: relative;
+    }
+  }
+}
+
